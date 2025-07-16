@@ -1,0 +1,391 @@
+/* Importación de la fuente Inter desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+:root {
+    /* Paleta de colores mejorada */
+    --primary-color: #5A67D8; /* Azul púrpura profundo */
+    --secondary-color: #68D391; /* Verde esmeralda suave */
+    --background-light: #F7FAFC; /* Blanco grisáceo muy claro */
+    --background-card: #FFFFFF; /* Blanco puro para tarjetas */
+    --text-dark: #2D3748; /* Gris oscuro para texto principal */
+    --text-light: #718096; /* Gris medio para texto secundario */
+    --border-color: #EDF2F7; /* Borde muy suave */
+    --completed-bg: #E6FFFA; /* Fondo muy claro para completadas (verde azulado) */
+    --completed-text: #2C7A7B; /* Texto oscuro para completadas */
+    --shadow-light: rgba(45, 55, 72, 0.08); /* Sombra suave y difusa */
+    --shadow-medium: rgba(45, 55, 72, 0.15); /* Sombra más pronunciada */
+    --shadow-hover: rgba(45, 55, 72, 0.2); /* Sombra al pasar el ratón */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, var(--background-light) 0%, #E2E8F0 100%); /* Fondo degradado suave */
+    color: var(--text-dark);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea al inicio para permitir scroll */
+    min-height: 100vh;
+    padding: 40px; /* Más padding general para ocupar más pantalla */
+    box-sizing: border-box;
+    line-height: 1.7; /* Mejor legibilidad */
+}
+
+.main-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.container {
+    background-color: transparent; /* El contenedor principal no tiene fondo propio */
+    padding: 0;
+    border-radius: 20px; /* Esquinas aún más redondeadas */
+    width: 100%;
+    max-width: 1200px; /* Ancho máximo mucho mayor para PC */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Más espacio entre secciones */
+}
+
+.planner-header {
+    text-align: center;
+    padding: 40px 0; /* Más padding */
+    background: linear-gradient(45deg, var(--primary-color) 0%, #7F9CF5 100%); /* Degradado para el encabezado */
+    color: white;
+    border-radius: 18px 18px 0 0; /* Solo esquinas superiores redondeadas */
+    margin-bottom: -30px; /* Superponer ligeramente con la primera tarjeta */
+    box-shadow: 0 8px 20px var(--shadow-medium); /* Sombra más grande */
+    position: relative; /* Para z-index si es necesario */
+    z-index: 1; /* Asegura que esté por encima de las tarjetas */
+}
+
+.planner-header h1 {
+    font-size: 3.8em; /* Título aún más grande */
+    font-weight: 800; /* Extra bold */
+    margin: 0;
+    letter-spacing: -1px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra de texto */
+}
+
+.planner-header .tagline {
+    font-size: 1.3em; /* Subtítulo más grande */
+    font-weight: 400;
+    margin-top: 10px;
+    opacity: 0.95;
+}
+
+/* Contenedor para las dos columnas (tareas y notas) */
+.content-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Más espacio entre las columnas */
+    padding: 0 30px 30px; /* Padding para que las tarjetas no toquen los bordes del contenedor principal */
+    align-items: flex-start; /* Alinea las columnas en la parte superior */
+}
+
+.card {
+    background-color: var(--background-card);
+    padding: 35px; /* Más padding dentro de las tarjetas */
+    border-radius: 15px; /* Esquinas más redondeadas */
+    box-shadow: 0 10px 30px var(--shadow-light); /* Sombra más suave y difusa */
+    border: 1px solid var(--border-color);
+    flex: 1;
+    min-width: 450px; /* Ancho mínimo mayor para cada columna */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Pequeño efecto de elevación al pasar el ratón */
+    box-shadow: 0 15px 40px var(--shadow-hover); /* Sombra más intensa al pasar el ratón */
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 2.2em; /* Títulos de sección más grandes */
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 25px; /* Más espacio debajo del título */
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Más espacio entre el icono y el texto */
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-list li {
+    background-color: var(--background-light);
+    border: 1px solid var(--border-color);
+    margin-bottom: 18px; /* Más espacio entre tareas */
+    padding: 20px 25px; /* Más padding */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.task-list li:hover {
+    background-color: #EBF4FF; /* Un azul muy claro al pasar el ratón */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.task-list li.completed {
+    background-color: var(--completed-bg);
+    border-color: #B2F5EA; /* Borde verde azulado */
+    text-decoration: line-through;
+    color: var(--completed-text);
+    box-shadow: none;
+    opacity: 0.8;
+}
+
+.task-list li input[type="checkbox"] {
+    appearance: none; /* Oculta el checkbox por defecto */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-right: 25px; /* Más espacio */
+    width: 28px; /* Checkbox aún más grande */
+    height: 28px;
+    min-width: 28px;
+    min-height: 28px;
+    border: 2px solid var(--primary-color); /* Borde del checkbox */
+    border-radius: 6px; /* Bordes redondeados */
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.task-list li input[type="checkbox"]::after {
+    content: '✔'; /* Icono de checkmark */
+    font-size: 1.5em; /* Tamaño del checkmark */
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Inicialmente oculto */
+    transition: transform 0.3s ease;
+}
+
+.task-list li input[type="checkbox"]:checked {
+    background-color: var(--secondary-color); /* Fondo verde al marcar */
+    border-color: var(--secondary-color);
+}
+
+.task-list li input[type="checkbox"]:checked::after {
+    transform: translate(-50%, -50%) scale(1); /* Muestra el checkmark */
+}
+
+
+.task-list li label {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.task-list li span {
+    font-size: 1.2em; /* Fuente de tarea más grande */
+    font-weight: 400;
+    color: var(--text-dark);
+}
+
+.task-list li.completed span {
+    color: var(--completed-text);
+}
+
+
+.notes-textarea {
+    width: 100%;
+    min-height: 250px; /* Altura mínima mayor para notas */
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    box-sizing: border-box;
+    resize: vertical;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.notes-textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(90, 103, 216, 0.2); /* Sombra de enfoque más prominente */
+    outline: none;
+}
+
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 18px 30px; /* Más padding para el botón */
+    background: linear-gradient(45deg, var(--secondary-color) 0%, #48BB78 100%); /* Degradado para el botón */
+    color: white;
+    border: none;
+    border-radius: 10px; /* Bordes más redondeados */
+    font-size: 1.25em; /* Fuente más grande */
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 15px rgba(104, 211, 145, 0.4); /* Sombra más pronunciada */
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #5EEAD4 0%, #38A169 100%); /* Degradado diferente al pasar el ratón */
+    transform: translateY(-3px); /* Efecto de elevación más notorio */
+    box-shadow: 0 10px 20px rgba(104, 211, 145, 0.5);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(104, 211, 145, 0.3);
+}
+
+.save-message {
+    text-align: center;
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, background-color 0.3s ease;
+}
+
+.save-message.show {
+    opacity: 1;
+}
+
+.save-message.success {
+    background-color: var(--completed-bg);
+    color: var(--completed-text);
+    border: 1px solid #B2F5EA;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px; /* Ajuste para pantallas grandes pero no ultra-anchas */
+    }
+    .card {
+        min-width: 400px;
+    }
+    .planner-header h1 {
+        font-size: 3.2em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 992px) {
+    body {
+        padding: 30px;
+    }
+    .container {
+        max-width: 760px;
+    }
+    .card {
+        min-width: unset; /* Elimina el ancho mínimo para permitir mayor flexibilidad */
+        flex: 1 1 100%; /* Las tarjetas ocupan todo el ancho disponible y se apilan */
+    }
+    .content-columns {
+        flex-direction: column; /* Apila las columnas en pantallas medianas */
+        padding: 0 20px 20px;
+    }
+    .planner-header h1 {
+        font-size: 2.8em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    .task-list li {
+        padding: 18px 20px;
+    }
+    .notes-textarea {
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+    .planner-header {
+        padding: 30px 0;
+    }
+    .planner-header h1 {
+        font-size: 2.2em;
+    }
+    .planner-header .tagline {
+        font-size: 1em;
+    }
+    .card {
+        padding: 25px;
+        border-radius: 12px;
+    }
+    h2 {
+        font-size: 1.6em;
+    }
+    .task-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+        margin-bottom: 12px;
+    }
+    .task-list li input[type="checkbox"] {
+        margin-bottom: 10px;
+        margin-right: 0;
+        width: 24px;
+        height: 24px;
+        min-width: 24px;
+        min-height: 24px;
+    }
+    .task-list li span {
+        font-size: 1.05em;
+    }
+    .notes-textarea {
+        min-height: 150px;
+        font-size: 1em;
+    }
+    .btn-primary {
+        font-size: 1.1em;
+        padding: 14px 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        padding: 15px;
+    }
+    .planner-header {
+        padding: 20px 0;
+    }
+    .planner-header h1 {
+        font-size: 1.8em;
+    }
+    .planner-header .tagline {
+        font-size: 0.85em;
+    }
+    .card {
+        padding: 20px;
+        border-radius: 10px;
+    }
+    h2 {
+        font-size: 1.4em;
+    }
+    .task-list li span {
+        font-size: 0.95em;
+    }
+    .notes-textarea {
+        min-height: 120px;
+    }
+    .btn-primary {
+        font-size: 1em;
+        padding: 12px 15px;
+    }
+}

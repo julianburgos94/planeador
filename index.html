@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Planeador Diario Personal</title>
+    <!-- Enlace a Google Fonts para la fuente Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Enlace a nuestro archivo CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="container">
+            <header class="planner-header">
+                <h1>✨ Mi Planeador Diario Personal ✨</h1>
+                <p class="tagline">Organiza tu día, maximiza tu productividad.</p>
+            </header>
+
+            <!-- Contenedor para las dos columnas -->
+            <div class="content-columns">
+                <section class="task-section card">
+                    <h2>✅ Tus Tareas del Día</h2>
+                    <ul id="taskList" class="task-list">
+                        <!-- Las tareas se cargarán aquí dinámicamente desde JavaScript -->
+                    </ul>
+                </section>
+
+                <section class="notes-section card">
+                    <h2>📝 Notas y Recordatorios Importantes</h2>
+                    <textarea id="notes" class="notes-textarea" placeholder="Escribe tus notas y recordatorios importantes aquí..."></textarea>
+                    <button id="saveNotes" class="btn-primary">Guardar Notas</button>
+                    <div id="saveMessage" class="save-message"></div>
+                </section>
+            </div>
+            <!-- Fin del contenedor de columnas -->
+
+        </div>
+    </div>
+
+    <!-- Enlace a nuestro archivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
