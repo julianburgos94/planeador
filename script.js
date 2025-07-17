@@ -18,9 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "4:30 pm: Bañar a mi hija",
         "5:00 pm: Hacer aseo en casa y adelantar algo de almuerzo para el siguiente día",
         "7:00 pm: Darle de cenar a mi hija",
-        "8:00 pm: Cenar yo",
-        "9:00 pm: Acostarme",
-        "9:00 pm - 10:30 pm: Ver ideas y creatividad"
+        "8:00 pm: Cenar y compartir con mi esposa",
+        "9:00 pm - 10:30 pm: Ver ideas y creatividad en la habitacion"
     ];
 
     // Function to load tasks and their status from local storage
